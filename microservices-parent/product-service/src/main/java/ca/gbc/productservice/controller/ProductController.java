@@ -2,17 +2,16 @@ package ca.gbc.productservice.controller;
 
 import ca.gbc.productservice.dto.ProductRequest;
 import ca.gbc.productservice.dto.ProductResponse;
+import ca.gbc.productservice.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ca.gbc.productservice.service.ProductServiceImpl;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/product/")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -21,19 +20,17 @@ public class ProductController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody ProductRequest productRequest){
-         productService.createProduct(productRequest);
+        productService.createProduct(productRequest);
     }
 
     @GetMapping
-    @ResponseStatus
+    @ResponseStatus(HttpStatus.OK)
     public List<ProductResponse> getAllProducts(){
         return productService.getAllProducts();
     }
 
-    //http://local
     @PutMapping({"/{productId}"})
-    public ResponseEntity<?> updateProduct(@PathVariable("product") String productId,
-                                           @RequestBody ProductRequest productRequest){
+    public ResponseEntity<?> updateProduct(@PathVariable("productId") String productId, @RequestBody ProductRequest productRequest){
 
         String updatedProductId = productService.updateProduct(productId, productRequest);
 

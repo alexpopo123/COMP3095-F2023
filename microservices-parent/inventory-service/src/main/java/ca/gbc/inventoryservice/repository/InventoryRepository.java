@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 
-    Optional<Inventory> findbySkuCode(String skuCode);
+    Optional<Inventory> findBySkuCode(String skuCode);
 
     List<Inventory> findAllBySkuCodeIn(List<String> skuCodes);
 

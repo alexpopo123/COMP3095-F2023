@@ -5,6 +5,8 @@ import ca.gbc.inventoryservice.dto.InventoryResponse;
 import ca.gbc.inventoryservice.model.Inventory;
 import ca.gbc.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@ComponentScan
+@Repository
 public class InventoryServiceImpl implements InventoryService{
 
     private final InventoryRepository inventoryRepository;

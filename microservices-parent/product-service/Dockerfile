@@ -10,7 +10,7 @@
 FROM gradle:8-jdk17 AS builder
 
 #Copy the application files from the host machine to the image filesystem
-COPY --chown=gradle . /home/gradle/src
+COPY --chown=gradle ../product-service /home/gradle/src
 
 # set the directory within the image, for executing future commands
 WORKDIR /home/gradle/src

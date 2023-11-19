@@ -15,7 +15,7 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        if(inventoryRepository.findbySkuCode("sku_12345").isEmpty()){
+        if(inventoryRepository.findBySkuCode("sku_12345").isEmpty()){
 
             Inventory widgets = Inventory.builder()
                     .skuCode("sku_12345")
@@ -25,7 +25,7 @@ public class DataLoader implements CommandLineRunner {
             inventoryRepository.save(widgets);
 
         }
-        if(inventoryRepository.findbySkuCode("sku_789123").isEmpty()){
+        if(inventoryRepository.findBySkuCode("sku_789123").isEmpty()){
 
             Inventory widgets = Inventory.builder()
                     .skuCode("sku_789123")
@@ -35,7 +35,7 @@ public class DataLoader implements CommandLineRunner {
             inventoryRepository.save(widgets);
 
         }
-        if(inventoryRepository.findbySkuCode("sku_55555").isEmpty()){
+        if(inventoryRepository.findBySkuCode("sku_55555").isEmpty()){
 
             Inventory widgets = Inventory.builder()
                     .skuCode("sku_55555")
